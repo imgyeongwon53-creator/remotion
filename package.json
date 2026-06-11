@@ -7,9 +7,13 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "remotion": "remotion studio",
+    "render": "remotion render src/remotion/Root.tsx SelfIntro out/video.mp4"
   },
   "dependencies": {
+    "@remotion/bundler": "^4.0.475",
+    "@remotion/cli": "^4.0.475",
     "@remotion/player": "^4.0.475",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
