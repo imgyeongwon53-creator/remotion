@@ -1,3 +1,4 @@
+import { Img, staticFile } from "remotion";
 import HufsLogo from "./HufsLogo";
 
 function ease(p: number) { return 1 - Math.pow(1 - Math.min(p, 1), 3); }
@@ -26,23 +27,10 @@ export default function Scene1_Intro({ progress }: { progress: number }) {
         marginBottom: 20,
         flexShrink: 0,
       }}>
-        <img
-          src="/photo.jpg"
+        <Img
+          src={staticFile("photo.jpg")}
           alt="임경원"
           style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
-          onError={(e) => {
-            const t = e.currentTarget;
-            t.style.display = "none";
-            const parent = t.parentElement!;
-            parent.style.background = "linear-gradient(135deg,#1a3a6e,#0a1e4a)";
-            parent.style.display = "flex";
-            parent.style.alignItems = "center";
-            parent.style.justifyContent = "center";
-            const span = document.createElement("span");
-            span.textContent = "임";
-            span.style.cssText = "font-size:52px;font-weight:900;color:#fff;";
-            parent.appendChild(span);
-          }}
         />
       </div>
 
@@ -62,7 +50,7 @@ export default function Scene1_Intro({ progress }: { progress: number }) {
 
       {/* University + Logo */}
       <div style={{ ...fadeSlide(0.25), display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
-        <HufsLogo size={32} color="#8ab4ff" />
+        <HufsLogo size={32} />
         <span style={{ fontSize: 17, color: "#8ab4ff", fontWeight: 700 }}>한국외국어대학교</span>
       </div>
 
