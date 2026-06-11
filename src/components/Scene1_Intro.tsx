@@ -19,7 +19,7 @@ export default function Scene1_Intro({ progress }: { progress: number }) {
       {/* Photo */}
       <div style={{
         ...fadeSlide(0),
-        width: 130, height: 130,
+        width: 90, height: 90,
         borderRadius: "50%",
         overflow: "hidden",
         border: "3px solid rgba(100,160,255,0.5)",
