@@ -1,7 +1,7 @@
-import { Composition } from "remotion";
+import { Composition, registerRoot } from "remotion";
 import { VideoComposition } from "./VideoComposition";
 
-export function RemotionRoot() {
+function RemotionRoot() {
   return (
     <Composition
       id="SelfIntro"
@@ -13,3 +13,5 @@ export function RemotionRoot() {
     />
   );
 }
+
+registerRoot(RemotionRoot);
