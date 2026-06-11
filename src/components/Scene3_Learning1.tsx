@@ -3,6 +3,27 @@ function ep(progress: number, delay: number, dur = 0.2) {
   return ease(Math.max(0, (progress - delay) / dur));
 }
 
+const COMPARE = [
+  {
+    type: "bad",
+    label: "❌ 나쁜 프롬프트",
+    example: '"번역해줘"',
+    result: "맥락 없는 직역\n오류 가능성 높음",
+    color: "#ff5050",
+    bg: "rgba(255,80,80,0.07)",
+    border: "rgba(255,80,80,0.3)",
+  },
+  {
+    type: "good",
+    label: "✅ 좋은 프롬프트",
+    example: '"중국어 비즈니스 이메일을\n정중한 한국어로 번역해줘"',
+    result: "목적에 맞는 고품질 결과\n즉시 활용 가능",
+    color: "#50d0ff",
+    bg: "rgba(80,208,255,0.07)",
+    border: "rgba(80,208,255,0.3)",
+  },
+];
+
 export default function Scene3_Learning1({ progress }: { progress: number }) {
   return (
     <div style={{
@@ -29,36 +50,37 @@ export default function Scene3_Learning1({ progress }: { progress: number }) {
         </div>
       </div>
 
-      {/* Progress bar visual */}
-      <div style={{ opacity: ep(progress, 0.28), marginBottom: 28 }}>
-        <div style={{ display: "flex", gap: 16, marginBottom: 14 }}>
-          {[
-            { label: "나쁜 프롬프트", val: 30, color: "#ff5050" },
-            { label: "좋은 프롬프트", val: 92, color: "#50d0ff" },
-          ].map((item) => (
-            <div key={item.label} style={{ flex: 1 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "rgba(255,255,255,0.5)", marginBottom: 6 }}>
-                <span>{item.label}</span>
-                <span style={{ color: item.color }}>{Math.round(item.val * ep(progress, 0.35, 0.35))}%</span>
-              </div>
-              <div style={{ height: 8, background: "rgba(255,255,255,0.08)", borderRadius: 4, overflow: "hidden" }}>
-                <div style={{
-                  height: "100%",
-                  width: `${item.val * ep(progress, 0.35, 0.35)}%`,
-                  background: item.color,
-                  borderRadius: 4,
-                  boxShadow: `0 0 10px ${item.color}80`,
-                }} />
+      {/* Comparison cards */}
+      <div style={{ display: "flex", gap: 16, marginBottom: 24 }}>
+        {COMPARE.map((item, i) => {
+          const p = ep(progress, 0.28 + i * 0.12, 0.22);
+          return (
+            <div key={item.type} style={{
+              flex: 1, opacity: p,
+              transform: `translateY(${(1 - p) * 20}px)`,
+              background: item.bg,
+              border: `1px solid ${item.border}`,
+              borderRadius: 14, padding: "16px 18px",
+            }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: item.color, marginBottom: 10 }}>{item.label}</div>
+              <div style={{
+                fontSize: 12, color: "rgba(255,255,255,0.7)",
+                background: "rgba(0,0,0,0.25)", borderRadius: 8,
+                padding: "8px 10px", marginBottom: 10,
+                fontFamily: "monospace", whiteSpace: "pre-line",
+              }}>{item.example}</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", lineHeight: 1.6, whiteSpace: "pre-line" }}>
+                → {item.result}
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
 
       {/* Quote */}
       <div style={{
-        opacity: ep(progress, 0.55),
-        transform: `translateY(${(1 - ep(progress, 0.55)) * 16}px)`,
+        opacity: ep(progress, 0.6),
+        transform: `translateY(${(1 - ep(progress, 0.6)) * 16}px)`,
         borderLeft: "3px solid #5090ff",
         paddingLeft: 18,
       }}>

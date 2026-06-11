@@ -11,8 +11,8 @@ const HOBBIES = [
   },
   {
     emoji: "💃",
-    title: "댄스 동아리 '재인'",
-    desc: "중앙댄스동아리 재인에서\n춤으로 표현하는 나만의 언어",
+    title: "댄스 동아리 '才人'",
+    desc: "재능있는 사람들이 모인 중앙댄스동아리\n춤으로 표현하는 나만의 언어",
     color: "#c080ff",
     border: "rgba(192,128,255,0.3)",
     bg: "rgba(160,80,255,0.08)",
@@ -39,6 +39,7 @@ export default function Scene2_Hobbies({ progress }: { progress: number }) {
         {HOBBIES.map((h, i) => {
           const delay = 0.15 + i * 0.18;
           const p = ease(Math.max(0, (progress - delay) / 0.22));
+          const float = Math.sin(progress * Math.PI * 5 + i * Math.PI) * 7;
           return (
             <div key={h.title} style={{
               opacity: p,
@@ -48,7 +49,11 @@ export default function Scene2_Hobbies({ progress }: { progress: number }) {
               border: `1px solid ${h.border}`,
               borderRadius: 16, padding: "20px 24px",
             }}>
-              <div style={{ fontSize: 48, flexShrink: 0 }}>{h.emoji}</div>
+              <div style={{
+                fontSize: 48, flexShrink: 0,
+                display: "inline-block",
+                transform: `translateY(${float * p}px)`,
+              }}>{h.emoji}</div>
               <div>
                 <div style={{ fontSize: 20, fontWeight: 800, color: h.color, marginBottom: 6 }}>{h.title}</div>
                 <div style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.6, whiteSpace: "pre-line" }}>{h.desc}</div>

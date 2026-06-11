@@ -51,8 +51,8 @@ export default function Scene5_Outro({ progress }: { progress: number }) {
           fontSize: 13, color: "rgba(255,255,255,0.4)",
           lineHeight: 1.7, letterSpacing: 0.5,
         }}>
-          AI 미디어 큐레이션 수업을 통해 성장한<br />
-          데이터 큐레이터를 꿈꾸는 임경원입니다 🌏
+          AI 미디어 큐레이션 수업으로 한 걸음 더 성장했습니다.<br />
+          데이터로 세상을 큐레이팅할 임경원입니다 🌏
         </div>
       </div>
     </div>

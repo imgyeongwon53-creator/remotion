@@ -48,7 +48,8 @@ export default function Scene1_Intro({ progress }: { progress: number }) {
 
       {/* Name */}
       <div style={{ ...fadeSlide(0.1), textAlign: "center", marginBottom: 6 }}>
-        <span style={{ fontSize: 46, fontWeight: 900, color: "#fff", letterSpacing: -1 }}>임경원</span>
+        <div style={{ fontSize: 46, fontWeight: 900, color: "#fff", letterSpacing: -1 }}>임경원</div>
+        <div style={{ fontSize: 18, fontWeight: 500, color: "rgba(170,200,255,0.6)", letterSpacing: 4, marginTop: 4 }}>林敬圆</div>
       </div>
 
       {/* Divider */}
