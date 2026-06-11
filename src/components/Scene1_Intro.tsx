@@ -30,7 +30,7 @@ export default function Scene1_Intro({ progress }: { progress: number }) {
         <Img
           src={staticFile("photo.jpg")}
           alt="임경원"
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", transform: "scale(0.75)" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
         />
       </div>
 
