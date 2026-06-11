@@ -1,4 +1,4 @@
-import { Img } from "remotion";
+import { Img, staticFile } from "remotion";
 import HufsLogo from "./HufsLogo";
 
 function ease(p: number) { return 1 - Math.pow(1 - Math.min(p, 1), 3); }
@@ -28,7 +28,7 @@ export default function Scene1_Intro({ progress }: { progress: number }) {
         flexShrink: 0,
       }}>
         <Img
-          src="photo.jpg"
+          src={staticFile("photo.jpg")}
           alt="임경원"
           style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
         />

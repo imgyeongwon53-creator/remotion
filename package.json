@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "remotion": "remotion studio",
-    "render": "remotion render src/remotion/Root.tsx SelfIntro out/video.mp4 --overwrite"
+    "render": "remotion render src/remotion/Root.tsx SelfIntro out/video.mp4 --overwrite --public-dir=public"
   },
   "dependencies": {
     "@remotion/bundler": "^4.0.475",
