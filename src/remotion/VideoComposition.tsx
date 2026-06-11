@@ -1,4 +1,4 @@
-import { useCurrentFrame, useVideoConfig, AbsoluteFill } from "remotion";
+import { useCurrentFrame, useVideoConfig, AbsoluteFill, Audio } from "remotion";
 import Scene1_Intro from "../components/Scene1_Intro";
 import Scene2_Hobbies from "../components/Scene2_Hobbies";
 import Scene3_Learning1 from "../components/Scene3_Learning1";
@@ -59,6 +59,7 @@ export function VideoComposition() {
         background: "radial-gradient(circle, rgba(20,60,160,0.18) 0%, transparent 70%)",
       }} />
 
+      <Audio src="/bgm.mp3" volume={0.4} />
       <scene.Component progress={progress} />
     </AbsoluteFill>
   );
