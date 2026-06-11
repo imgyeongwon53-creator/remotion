@@ -19,7 +19,7 @@ export default function Scene1_Intro({ progress }: { progress: number }) {
       {/* Photo */}
       <div style={{
         ...fadeSlide(0),
-        width: 90, height: 90,
+        width: 130, height: 130,
         borderRadius: "50%",
         overflow: "hidden",
         border: "3px solid rgba(100,160,255,0.5)",
@@ -30,7 +30,7 @@ export default function Scene1_Intro({ progress }: { progress: number }) {
         <Img
           src={staticFile("photo.jpg")}
           alt="임경원"
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", transform: "scale(0.75)" }}
         />
       </div>
 
